@@ -48,9 +48,9 @@ export default function Textform(props) {
     </div>
     <div className='Preview-area'>
         <h2>Text Summary:</h2>
-        <p><span className='Labels'>Word Counts: </span>{text.split(" ")[0]==="" ? 0 : text.split(" ").length}</p>
+        <p><span className='Labels'>Word Counts: </span>{text.split(/\s+/).filter((elements)=>{return elements.length !==0}).length}</p>
         <p><span className='Labels'>Character Counts: </span>{text.length}</p>
-        <p><span className='Labels'>Reading Time:  </span>{text.split(" ")[0]==="" ? 0 :text.split(" ").length * 0.008} Minutes</p>
+        <p><span className='Labels'>Reading Time:  </span>{text.split(/\s+/).filter((elements)=>{return elements.length !==0}).length * 0.008} Minutes</p>
 
         <h2>Text Preview: <span className='ClipBoard' onClick={copyToClipboard} title="Copy to clipboard"><span className="Notify">{successCopy}</span></span></h2>
         
